@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Data Science & Actuaría</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        YourName
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag reveal">
+        <span class="dot"></span> Available for opportunities
+      </div>
+      <h1 class="hero-title reveal">
+        <span class="line">Hi, I'm</span>
+        <span class="line name-line">Your Name</span>
+      </h1>
+      <p class="hero-subtitle reveal">
+        Data Science &amp; Actuaría student at <strong>ITAM</strong> · Academic Excellence Scholar ·
+        Exchange at <strong>UPC Barcelona</strong>
+      </p>
+      <p class="hero-desc reveal">
+        I turn data into decisions. Passionate about the intersection of mathematics,
+        technology, and social impact — with hands-on experience leading teams and
+        building solutions that matter.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-rocket"></i> View Projects
+        </a>
+        <a href="assets/cv/cv.pdf" class="btn btn-ghost" target="_blank" download>
+          <i class="fa-solid fa-file-arrow-down"></i> Download CV
+        </a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-num">2+</span>
+          <span class="stat-label">Years of leadership</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Organizations led</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">8</span>
+          <span class="stat-label">Technical skills</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">01 — About</span>
+        <h2 class="section-title">Who I Am</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <div class="photo-frame">
+            <img src="assets/img/profile.jpg" alt="Your Name" id="profilePhoto" />
+            <div class="photo-accent"></div>
+          </div>
+          <div class="about-social">
+            <a href="https://github.com/YOUR_USERNAME" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:your@email.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <p class="about-intro">
+            I'm a <strong>Data Science and Actuaría</strong> student at ITAM (Instituto Tecnológico Autónomo de México),
+            where I hold an <strong>Academic Excellence Scholarship</strong> — awarded to the top-performing students in my cohort.
+          </p>
+          <p>
+            My academic journey took me to <strong>Barcelona, Spain</strong>, where I completed an exchange semester
+            at the <em>Universitat Politècnica de Catalunya (UPC)</em>, one of Europe's leading technical universities.
+            That experience sharpened both my technical skills and my global perspective.
+          </p>
+          <p>
+            Beyond the classroom, I've spent years building organizations and leading communities —
+            from coordinating rural development projects to representing students at an institutional level.
+            I believe the most powerful solutions emerge when rigorous data thinking meets genuine human purpose.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Mexico City, México</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>ITAM — Data Science &amp; Actuaría</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-globe"></i>
+              <span>Exchange: UPC Barcelona, España</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-language"></i>
+              <span>Spanish · English · French</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ EXPERIENCE -->
+  <section class="section section-alt" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">02 — Experience</span>
+        <h2 class="section-title">Where I've Contributed</h2>
+      </div>
+      <div class="timeline">
+
+        <!-- B1T -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <div class="card-logo-wrap">
+                <img src="assets/img/logos/b1t.png" alt="B1T" class="card-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+                <div class="card-logo-fallback" style="display:none"><i class="fa-solid fa-building"></i></div>
+              </div>
+              <div class="card-meta">
+                <h3 class="card-title">Vice President</h3>
+                <span class="card-org">B1T</span>
+                <span class="card-date"><i class="fa-regular fa-calendar"></i> 2023 — Present</span>
+              </div>
+              <span class="card-badge">Leadership</span>
+            </div>
+            <ul class="card-bullets">
+              <li>Led strategic planning and decision-making as part of the executive team.</li>
+              <li>Oversaw coordination between departments to ensure alignment with organizational goals.</li>
+              <li>Drove initiatives focused on technology, community growth, and knowledge sharing.</li>
+            </ul>
+            <div class="card-tags">
+              <span>Leadership</span><span>Strategy</span><span>Organization</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enlace Rural — Executive Lead -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <div class="card-logo-wrap">
+                <img src="assets/img/logos/enlace-rural.png" alt="Enlace Rural" class="card-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+                <div class="card-logo-fallback" style="display:none"><i class="fa-solid fa-seedling"></i></div>
+              </div>
+              <div class="card-meta">
+                <h3 class="card-title">Executive Lead</h3>
+                <span class="card-org">Enlace Rural</span>
+                <span class="card-date"><i class="fa-regular fa-calendar"></i> 2022 — 2023</span>
+              </div>
+              <span class="card-badge card-badge-green">Social Impact</span>
+            </div>
+            <ul class="card-bullets">
+              <li>Managed the overall vision and operations of a rural development initiative.</li>
+              <li>Built and maintained partnerships with external stakeholders and community leaders.</li>
+              <li>Directed a multidisciplinary team across project cycles from planning to execution.</li>
+            </ul>
+            <div class="card-tags">
+              <span>Management</span><span>Community</span><span>Rural Development</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enlace Rural — Project Coordinator -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <div class="card-logo-wrap">
+                <img src="assets/img/logos/enlace-rural.png" alt="Enlace Rural" class="card-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+                <div class="card-logo-fallback" style="display:none"><i class="fa-solid fa-seedling"></i></div>
+              </div>
+              <div class="card-meta">
+                <h3 class="card-title">Project Coordinator</h3>
+                <span class="card-org">Enlace Rural</span>
+                <span class="card-date"><i class="fa-regular fa-calendar"></i> 2021 — 2022</span>
+              </div>
+              <span class="card-badge card-badge-green">Social Impact</span>
+            </div>
+            <ul class="card-bullets">
+              <li>Coordinated field projects connecting rural communities with resources and support networks.</li>
+              <li>Designed event logistics and operational workflows for community programs.</li>
+              <li>Facilitated communication between volunteers, sponsors, and community members.</li>
+            </ul>
+            <div class="card-tags">
+              <span>Coordination</span><span>Events</span><span>Fieldwork</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ EDUCATION -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">03 — Education</span>
+        <h2 class="section-title">Academic Background</h2>
+      </div>
+      <div class="edu-grid">
+
+        <div class="edu-card reveal">
+          <div class="edu-card-top">
+            <div class="edu-logo-wrap">
+              <img src="assets/img/logos/itam.png" alt="ITAM" class="edu-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+              <div class="edu-logo-fallback" style="display:none"><i class="fa-solid fa-university"></i></div>
+            </div>
+            <div class="edu-badge">
+              <i class="fa-solid fa-star"></i> Excellence Scholarship
+            </div>
+          </div>
+          <h3 class="edu-degree">B.S. Data Science &amp; Actuaría</h3>
+          <span class="edu-school">Instituto Tecnológico Autónomo de México</span>
+          <span class="edu-location"><i class="fa-solid fa-location-dot"></i> Mexico City, México</span>
+          <span class="edu-date">2021 — Present</span>
+          <p class="edu-desc">
+            Double-track program combining rigorous statistical theory, actuarial mathematics,
+            and modern data science methods. Recipient of the Academic Excellence Scholarship,
+            granted to top-ranking students each semester.
+          </p>
+          <div class="edu-tags">
+            <span>Statistics</span><span>Machine Learning</span><span>Actuarial Science</span><span>Databases</span>
+          </div>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-card-top">
+            <div class="edu-logo-wrap">
+              <img src="assets/img/logos/upc.png" alt="UPC" class="edu-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+              <div class="edu-logo-fallback" style="display:none"><i class="fa-solid fa-globe"></i></div>
+            </div>
+            <div class="edu-badge edu-badge-blue">
+              <i class="fa-solid fa-plane"></i> Exchange Program
+            </div>
+          </div>
+          <h3 class="edu-degree">Academic Exchange</h3>
+          <span class="edu-school">Universitat Politècnica de Catalunya</span>
+          <span class="edu-location"><i class="fa-solid fa-location-dot"></i> Barcelona, Spain</span>
+          <span class="edu-date">2023</span>
+          <p class="edu-desc">
+            Semester abroad at one of Europe's most prestigious technical universities,
+            deepening expertise in engineering and data-driven disciplines while gaining
+            a global academic and cultural perspective.
+          </p>
+          <div class="edu-tags">
+            <span>International</span><span>Engineering</span><span>Barcelona</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ SKILLS -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">04 — Skills</span>
+        <h2 class="section-title">What I Work With</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title"><i class="fa-solid fa-code"></i> Programming Languages</h3>
+          <div class="skill-pills">
+            <div class="skill-pill">
+              <i class="fa-brands fa-python"></i>
+              <span>Python</span>
+            </div>
+            <div class="skill-pill">
+              <i class="fa-brands fa-java"></i>
+              <span>Java</span>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-icon">C#</span>
+              <span>C#</span>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-icon">R</span>
+              <span>R</span>
+            </div>
+            <div class="skill-pill">
+              <i class="fa-solid fa-database"></i>
+              <span>SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title"><i class="fa-solid fa-toolbox"></i> Tools &amp; Platforms</h3>
+          <div class="skill-pills">
+            <div class="skill-pill">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </div>
+            <div class="skill-pill">
+              <i class="fa-brands fa-docker"></i>
+              <span>Docker</span>
+            </div>
+            <div class="skill-pill">
+              <i class="fa-brands fa-microsoft"></i>
+              <span>MS Office</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title"><i class="fa-solid fa-users"></i> Soft Skills</h3>
+          <div class="skill-pills">
+            <div class="skill-pill">
+              <i class="fa-solid fa-chess-king"></i>
+              <span>Leadership</span>
+            </div>
+            <div class="skill-pill">
+              <i class="fa-solid fa-diagram-project"></i>
+              <span>Project Management</span>
+            </div>
+            <div class="skill-pill">
+              <i class="fa-solid fa-handshake"></i>
+              <span>Community Engagement</span>
+            </div>
+            <div class="skill-pill">
+              <i class="fa-solid fa-bullhorn"></i>
+              <span>Student Representation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title"><i class="fa-solid fa-language"></i> Languages</h3>
+          <div class="skill-pills">
+            <div class="skill-pill">
+              <span class="pill-flag">🇲🇽</span>
+              <span>Spanish <em>(Native)</em></span>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-flag">🇺🇸</span>
+              <span>English <em>(Advanced)</em></span>
+            </div>
+            <div class="skill-pill">
+              <span class="pill-flag">🇫🇷</span>
+              <span>French <em>(Basic)</em></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">05 — Projects</span>
+        <h2 class="section-title">Things I've Built</h2>
+        <p class="section-sub">A selection of academic and personal projects. More on <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Project card — TEMPLATE (duplicate to add more) -->
+        <div class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="assets/img/projects/project1.jpg" alt="Project 1" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-img-fallback">
+              <i class="fa-solid fa-chart-bar"></i>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tech">
+              <span>Python</span><span>SQL</span><span>Data Analysis</span>
+            </div>
+            <h3 class="project-title">Data Analysis Project</h3>
+            <p class="project-desc">
+              Add your project description here. Explain what problem it solves,
+              the dataset or domain, and key findings or results.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/YOUR_USERNAME" target="_blank" class="project-link">
+                <i class="fa-brands fa-github"></i> Code
+              </a>
+              <a href="#" class="project-link project-link-demo">
+                <i class="fa-solid fa-eye"></i> Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="assets/img/projects/project2.jpg" alt="Project 2" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-img-fallback">
+              <i class="fa-solid fa-database"></i>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tech">
+              <span>Java</span><span>Databases</span>
+            </div>
+            <h3 class="project-title">Database Management System</h3>
+            <p class="project-desc">
+              Add your project description here. Explain what problem it solves
+              and what technical challenges you overcame.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/YOUR_USERNAME" target="_blank" class="project-link">
+                <i class="fa-brands fa-github"></i> Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="assets/img/projects/project3.jpg" alt="Project 3" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-img-fallback">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tech">
+              <span>R</span><span>Statistics</span>
+            </div>
+            <h3 class="project-title">Statistical Modeling</h3>
+            <p class="project-desc">
+              Add your project description here. What model did you build?
+              What insight did you extract from the data?
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/YOUR_USERNAME" target="_blank" class="project-link">
+                <i class="fa-brands fa-github"></i> Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ BLOG -->
+  <section class="section section-alt" id="blog">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">06 — Blog</span>
+        <h2 class="section-title">Thoughts &amp; Writing</h2>
+        <p class="section-sub">Ideas on data, technology, and everything in between.</p>
+      </div>
+      <div class="blog-grid">
+
+        <!-- Blog post card — TEMPLATE -->
+        <article class="blog-card reveal">
+          <div class="blog-card-top">
+            <span class="blog-tag">Data Science</span>
+            <span class="blog-date">Coming soon</span>
+          </div>
+          <h3 class="blog-title">What I Learned in My First Year Studying Data Science</h3>
+          <p class="blog-excerpt">
+            A reflection on the challenges, surprises, and lessons from diving into
+            statistics, programming, and mathematics at ITAM.
+          </p>
+          <a href="#" class="blog-read-more">
+            Read more <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+
+        <article class="blog-card reveal">
+          <div class="blog-card-top">
+            <span class="blog-tag blog-tag-purple">Abroad</span>
+            <span class="blog-date">Coming soon</span>
+          </div>
+          <h3 class="blog-title">Six Months in Barcelona: A Data Student's Perspective</h3>
+          <p class="blog-excerpt">
+            From the UPC campus to the Mediterranean coast — how studying abroad
+            changed my approach to learning and problem-solving.
+          </p>
+          <a href="#" class="blog-read-more">
+            Read more <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+
+        <article class="blog-card reveal">
+          <div class="blog-card-top">
+            <span class="blog-tag blog-tag-green">Leadership</span>
+            <span class="blog-date">Coming soon</span>
+          </div>
+          <h3 class="blog-title">On Leading Without Authority: Lessons from Enlace Rural</h3>
+          <p class="blog-excerpt">
+            What volunteering and community coordination taught me about
+            influence, trust, and getting things done without a formal mandate.
+          </p>
+          <a href="#" class="blog-read-more">
+            Read more <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">07 — Contact</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-sub">
+          Open to internships, research collaborations, and interesting conversations.
+        </p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <span class="contact-label">Email</span>
+              <a href="mailto:your@email.com" class="contact-value">your@email.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+            <div>
+              <span class="contact-label">LinkedIn</span>
+              <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank" class="contact-value">linkedin.com/in/YOUR_USERNAME</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+            <div>
+              <span class="contact-label">GitHub</span>
+              <a href="https://github.com/YOUR_USERNAME" target="_blank" class="contact-value">github.com/YOUR_USERNAME</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Mexico City, México</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form reveal">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="What's on your mind?"></textarea>
+          </div>
+          <button class="btn btn-primary form-btn" onclick="handleContact()">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+          <p class="form-note" id="formNote"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">
+          <span class="logo-bracket">&lt;</span>YourName<span class="logo-bracket">/&gt;</span>
+        </span>
+        <span class="footer-copy">© 2025 · Built with care &amp; curiosity</span>
+        <div class="footer-links">
+          <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="mailto:your@email.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
