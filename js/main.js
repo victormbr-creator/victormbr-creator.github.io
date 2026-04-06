@@ -117,7 +117,7 @@ function handleContact() {
   // Opens the user's email client with pre-filled info
   const subject  = encodeURIComponent(`Portfolio Contact: ${name}`);
   const body     = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
-  window.location.href = `mailto:your@email.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:victorm.br@outlook.com?subject=${subject}&body=${body}`;
 
   note.textContent = '✓ Opening your email client…';
   note.style.color = 'var(--accent-3)';
@@ -142,6 +142,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+function createBinaryBackground() {
+  const container = document.getElementById("binaryBg");
+  if (!container) return;
+
+  const totalDigits = 45;
+  const colors = ["", "alt", "green"];
+
+  for (let i = 0; i < totalDigits; i++) {
+    const digit = document.createElement("span");
+    digit.classList.add("binary-digit");
+
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    if (randomColor) digit.classList.add(randomColor);
+
+    digit.textContent = Math.random() > 0.5 ? "1" : "0";
+
+    digit.style.left = `${Math.random() * 100}%`;
+    digit.style.top = `${20 + Math.random() * 80}%`;
+    digit.style.fontSize = `${0.8 + Math.random() * 1.2}rem`;
+    digit.style.animationDuration = `${8 + Math.random() * 8}s`;
+    digit.style.animationDelay = `${Math.random() * 8}s`;
+
+    container.appendChild(digit);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  createBinaryBackground();
+});
 /* ── Cursor glow effect (desktop only) ── */
 if (window.matchMedia('(pointer: fine)').matches) {
   const glow = document.createElement('div');
@@ -160,3 +189,7 @@ if (window.matchMedia('(pointer: fine)').matches) {
   document.addEventListener('mouseleave', () => glow.style.opacity = '0');
   document.addEventListener('mouseenter', () => glow.style.opacity = '1');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  createBinaryBackground();
+});

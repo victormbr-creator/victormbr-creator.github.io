@@ -125,6 +125,51 @@ ul { list-style: none; }
 .hero-bg {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
 }
+.binary-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.binary-digit {
+  position: absolute;
+  font-family: var(--font-code);
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(56, 189, 248, 0.14);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.08);
+  user-select: none;
+  animation: floatBinary linear infinite;
+}
+
+.binary-digit.alt {
+  color: rgba(129, 140, 248, 0.11);
+}
+
+.binary-digit.green {
+  color: rgba(52, 211, 153, 0.10);
+}
+
+@keyframes floatBinary {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px) translateX(10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-90px) translateX(-8px);
+    opacity: 0;
+  }
+}
+
 .grid-overlay {
   position: absolute; inset: 0;
   background-image:
