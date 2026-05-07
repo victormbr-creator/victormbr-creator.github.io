@@ -168,20 +168,147 @@
   position: absolute;
   right: 10%;
   bottom: 50px;
-  display: grid;
-  place-items: center;
-  width: clamp(34px, 6.5vw, 50px);
-  height: clamp(34px, 6.5vw, 50px);
-  font-size: clamp(1rem, 2.4vw, 1.35rem);
-  line-height: 1;
-  border-radius: 12px;
-  background: linear-gradient(155deg, #f59e0b 0%, #ef4444 92%);
-  border: 2px solid rgba(255, 255, 255, 0.45);
-  box-shadow:
-    0 8px 16px rgba(239, 68, 68, 0.35),
-    inset 0 -9px 12px rgba(0, 0, 0, 0.18);
+  width: clamp(42px, 7vw, 58px);
+  height: clamp(42px, 7vw, 58px);
   z-index: 2;
   animation: game-obstacle-float 0.95s ease-in-out infinite alternate;
+}
+
+/* Quita la idea de caja */
+.game-obstacle,
+.game-obstacle::before,
+.game-obstacle::after {
+  box-sizing: border-box;
+}
+
+/* TAREA: hoja de papel */
+.game-obstacle-task {
+  width: clamp(34px, 5.8vw, 46px);
+  height: clamp(44px, 7vw, 58px);
+  border-radius: 6px;
+  background: #f8fafc;
+  border: 2px solid rgba(15, 23, 42, 0.35);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.25);
+}
+
+.game-obstacle-task::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 8px;
+  right: 8px;
+  height: 3px;
+  background: #64748b;
+  box-shadow: 0 9px 0 #64748b, 0 18px 0 #64748b;
+}
+
+.game-obstacle-task::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  background: #cbd5e1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+/* PROFESOR: silueta */
+.game-obstacle-professor {
+  width: clamp(38px, 6.2vw, 50px);
+  height: clamp(52px, 7.5vw, 66px);
+}
+
+.game-obstacle-professor::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #f8c7a0;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.12);
+}
+
+.game-obstacle-professor::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 42px;
+  height: 40px;
+  transform: translateX(-50%);
+  border-radius: 14px 14px 8px 8px;
+  background: linear-gradient(160deg, #334155, #0f172a);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.28);
+}
+
+/* PERRO: cuerpo + cabeza */
+.game-obstacle-dog {
+  width: clamp(54px, 8vw, 70px);
+  height: clamp(34px, 5.4vw, 44px);
+}
+
+.game-obstacle-dog::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  bottom: 6px;
+  width: 42px;
+  height: 24px;
+  border-radius: 16px 16px 10px 10px;
+  background: #92400e;
+  box-shadow:
+    6px 22px 0 -9px #451a03,
+    30px 22px 0 -9px #451a03;
+}
+
+.game-obstacle-dog::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  bottom: 18px;
+  width: 24px;
+  height: 22px;
+  border-radius: 50% 50% 45% 45%;
+  background: #b45309;
+  box-shadow:
+    -4px -8px 0 -4px #451a03,
+    8px -7px 0 -5px #451a03;
+}
+
+/* EXAMEN: carpeta / folder */
+.game-obstacle-exam {
+  width: clamp(48px, 7.2vw, 62px);
+  height: clamp(34px, 5.6vw, 46px);
+  border-radius: 7px;
+  background: linear-gradient(160deg, #facc15, #f97316);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.25);
+}
+
+.game-obstacle-exam::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 6px;
+  width: 25px;
+  height: 12px;
+  border-radius: 6px 6px 0 0;
+  background: #fde68a;
+}
+
+.game-obstacle-exam::after {
+  content: "EXAM";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.62rem;
+  font-weight: 900;
+  color: rgba(15, 23, 42, 0.75);
+  letter-spacing: 0.04em;
 }
 
 @keyframes game-obstacle-float {
