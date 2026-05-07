@@ -19,8 +19,46 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/game.css" />
 </head>
 <body>
+
+  <!-- ITAM SURVIVAL MODE OVERLAY -->
+  <div id="gameOverlay" class="game-overlay" aria-live="polite">
+    <div class="game-panel">
+      <h1 class="game-title">ITAM Survival Mode: Portfolio Access</h1>
+      <p class="game-subtitle">Sobrevive al semestre para desbloquear la visita</p>
+      <p class="game-instructions">
+        Esquiva tareas, profes en modo final y caos universitario. Salta con Space, ArrowUp o Jump y supera 7 obstáculos.
+      </p>
+
+      <div class="game-hud">
+        <div class="game-lives" aria-label="Lives">
+          <span class="heart" aria-hidden="true">❤</span>
+          <span class="heart" aria-hidden="true">❤</span>
+          <span class="heart" aria-hidden="true">❤</span>
+        </div>
+        <div class="game-progress" aria-label="Progress">
+          <span id="gameProgressValue">0</span>/<span id="gameProgressTarget">7</span>
+        </div>
+      </div>
+
+      <div id="gameArea" class="game-area" aria-label="Game area">
+        <div id="player" class="game-player" aria-label="Player character"></div>
+        <div id="obstacle" class="game-obstacle" aria-label="Obstacle"></div>
+      </div>
+
+      <div class="game-controls">
+        <button id="startGameBtn" class="game-btn game-btn-start" type="button">Start</button>
+        <button id="jumpGameBtn" class="game-btn game-btn-jump" type="button">Jump</button>
+        <button id="skipGameBtn" class="game-btn game-btn-skip" type="button">Entrar sin jugar</button>
+      </div>
+
+      <p id="gameStatusMessage" class="game-status-message">
+        Bienvenido: presiona Start y demuestra reflejos de semana de parciales.
+      </p>
+    </div>
+  </div>
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
@@ -755,5 +793,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/game.js"></script>
 </body>
 </html>
