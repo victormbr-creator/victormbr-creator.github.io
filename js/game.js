@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const OBSTACLE_TYPES = [
-    { key: "task", label: "Tarea", emoji: "📚" },
-    { key: "angry-professor", label: "Profesor enojado", emoji: "👨‍🏫" },
-    { key: "rabid-dog", label: "Perro rabioso", emoji: "🐕" },
-    { key: "itam-logo", label: "ITAM", emoji: "🎓" },
+    { key: "task", label: "Tarea acumulada" },
+    { key: "professor", label: "Profesor en modo final" },
+    { key: "dog", label: "Perro rabioso" },
+    { key: "exam", label: "Examen sorpresa" },
   ];
 
   const TARGET_CLEAR = 7;
@@ -94,7 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function pickObstacleType() {
     const idx = Math.floor(Math.random() * OBSTACLE_TYPES.length);
     currentObstacle = OBSTACLE_TYPES[idx];
-    obstacle.textContent = currentObstacle.emoji;
+  
+    obstacle.textContent = "";
+    obstacle.className = `game-obstacle game-obstacle-${currentObstacle.key}`;
     obstacle.setAttribute("aria-label", currentObstacle.label);
     obstacle.dataset.type = currentObstacle.key;
   }
