@@ -1,798 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Víctor Benítez — Portfolio</title>
-  <meta
-    name="description"
-    content="Portfolio of Víctor Benítez, Data Science and Actuarial Science student at ITAM. Academic background, leadership experience, projects, and contact information."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fira+Code:wght@400;500&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <title>Curriculum Olimpics | Víctor Benítez</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/game.css" />
 </head>
 <body>
+  <div id="app" class="game-shell">
+    <canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
-  <!-- ITAM SURVIVAL MODE OVERLAY -->
-  <div id="gameOverlay" class="game-overlay" aria-live="polite">
-    <div class="game-panel">
-      <h1 class="game-title">ITAM Survival Mode: Portfolio Access</h1>
-      <p class="game-subtitle">Sobrevive al semestre para desbloquear la visita</p>
-      <p class="game-instructions">
-        Esquiva tareas, profes en modo final y caos universitario. Salta con Space, ArrowUp o Jump y supera 7 obstáculos.
-      </p>
+    <header class="topbar" aria-label="Barra de navegación">
+      <button class="brand" id="navHome" aria-label="Volver al inicio">
+        <span>CURRICULUM</span><strong>OLIMPICS</strong>
+      </button>
 
-      <div class="game-hud">
-        <div class="game-lives" aria-label="Lives">
-          <span class="heart" aria-hidden="true">❤</span>
-          <span class="heart" aria-hidden="true">❤</span>
-          <span class="heart" aria-hidden="true">❤</span>
+      <nav class="top-actions">
+        <button class="nav-btn" id="btnHub">🏟️ Estadio</button>
+        <button class="nav-btn" id="btnProgress">🏅 Progreso</button>
+        <button class="nav-btn locked" id="btnCV">🔒 CV</button>
+        <button class="nav-btn" id="btnReset">↻ Reiniciar</button>
+      </nav>
+
+      <div class="player-chip" aria-label="Perfil de jugador">
+        <div class="mini-avatar"></div>
+        <div>
+          <strong>Víctor</strong>
+          <small id="topProgressText">0/4 pruebas</small>
         </div>
-        <div class="game-progress" aria-label="Progress">
-          <span id="gameProgressValue">0</span>/<span id="gameProgressTarget">7</span>
+      </div>
+    </header>
+
+    <main>
+      <section id="screenTitle" class="screen active title-scene" aria-label="Pantalla de inicio">
+        <div class="stadium-bg">
+          <div class="cloud cloud-1"></div>
+          <div class="cloud cloud-2"></div>
+          <div class="crowd crowd-a"></div>
+          <div class="track-ring"></div>
+          <div class="field-glow"></div>
         </div>
-      </div>
 
-      <div id="gameArea" class="game-area" aria-label="Game area">
-        <div id="player" class="game-player" aria-label="Player character"></div>
-        <div id="obstacle" class="game-obstacle" aria-label="Obstacle"></div>
-      </div>
+        <div class="title-card pixel-card">
+          <p class="eyebrow">Bienvenido a</p>
+          <h1>Curriculum<br><span>Olimpics</span></h1>
+          <p>Compite en 4 pruebas, desbloquea logros y llega al podio para descubrir el CV de Víctor Benítez.</p>
+          <div class="title-actions">
+            <button class="primary-btn" id="startGame">START</button>
+            <button class="secondary-btn" id="openInstructions">Instrucciones</button>
+          </div>
+        </div>
 
-      <div class="game-controls">
-        <button id="startGameBtn" class="game-btn game-btn-start" type="button">Start</button>
-        <button id="jumpGameBtn" class="game-btn game-btn-jump" type="button">Jump</button>
-        <button id="skipGameBtn" class="game-btn game-btn-skip" type="button">Entrar sin jugar</button>
-      </div>
+        <div class="big-athlete celebrate-idle" aria-hidden="true">
+          <div class="sprite athlete-sprite facing-front">
+            <i class="hair"></i><i class="head"></i><i class="torso"></i><i class="arm arm-l"></i><i class="arm arm-r"></i><i class="leg leg-l"></i><i class="leg leg-r"></i><i class="shoe shoe-l"></i><i class="shoe shoe-r"></i>
+          </div>
+        </div>
 
-      <p id="gameStatusMessage" class="game-status-message">
-        Bienvenido: presiona Start y demuestra reflejos de semana de parciales.
-      </p>
+        <div class="controls-strip pixel-card">
+          <span><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> moverte</span>
+          <span><kbd>E</kbd> participar</span>
+          <span><kbd>ESC</kbd> salir</span>
+        </div>
+      </section>
+
+      <section id="screenHub" class="screen hub-scene" aria-label="Estadio principal">
+        <div class="stadium-bg hub-bg">
+          <div class="cloud cloud-1"></div>
+          <div class="cloud cloud-2"></div>
+          <div class="crowd crowd-a"></div>
+          <div class="track-ring hub-track"></div>
+          <div class="field-glow"></div>
+        </div>
+
+        <div class="hub-sign pixel-card">
+          <strong>Estadio Curriculum Olimpics</strong>
+          <span id="podiumStatus">Te faltan 4 pruebas para desbloquear el podio.</span>
+        </div>
+
+        <button class="event-marker long-marker" data-event="long">
+          <b>1</b><span>Salto de<br>Longitud</span><em class="event-art sandpit"></em>
+        </button>
+        <button class="event-marker hammer-marker" data-event="hammer">
+          <b>2</b><span>Lanzamiento<br>de Martillo</span><em class="event-art hammerzone"></em>
+        </button>
+        <button class="event-marker hurdles-marker" data-event="hurdles">
+          <b>3</b><span>Salto con<br>Vallas</span><em class="event-art hurdlezone"></em>
+        </button>
+        <button class="event-marker high-marker" data-event="high">
+          <b>4</b><span>Salto de<br>Altura</span><em class="event-art highzone"></em>
+        </button>
+
+        <button id="podium" class="podium-area locked-podium" aria-label="Podio bloqueado">
+          <span class="podium-msg" id="podiumMsg">Podio bloqueado<br><small>Faltan 4 pruebas</small></span>
+          <span class="podium-steps"><i>2</i><i>1</i><i>3</i></span>
+        </button>
+
+        <div id="player" class="player-avatar" style="left:50%; top:62%;">
+          <div class="sprite athlete-sprite facing-front">
+            <i class="hair"></i><i class="head"></i><i class="torso"></i><i class="arm arm-l"></i><i class="arm arm-r"></i><i class="leg leg-l"></i><i class="leg leg-r"></i><i class="shoe shoe-l"></i><i class="shoe shoe-r"></i>
+          </div>
+        </div>
+
+        <button id="interactionPrompt" class="interaction-prompt hidden">E Participar</button>
+
+        <aside class="progress-panel pixel-card" id="progressPanel">
+          <h2>Medallero</h2>
+          <ul>
+            <li data-medal="long">⬜ Salto de Longitud</li>
+            <li data-medal="hammer">⬜ Lanzamiento de Martillo</li>
+            <li data-medal="hurdles">⬜ Salto con Vallas</li>
+            <li data-medal="high">⬜ Salto de Altura</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="screenLong" class="screen event-screen long-event" aria-label="Salto de longitud">
+        <div class="event-sky"></div>
+        <div class="event-crowd"></div>
+        <div class="event-title pixel-card">1 · Salto de Longitud</div>
+        <div class="attempt-box pixel-card">Intentos <span id="longAttempts">♥ ♥ ♥</span></div>
+        <div class="instruction-card pixel-card">
+          Mantén <kbd>C</kbd> para correr. Presiona <kbd>SPACE</kbd> justo en la línea blanca.
+        </div>
+        <div class="long-track">
+          <div class="takeoff-line"></div>
+          <div class="sand-box"></div>
+          <div id="longRunner" class="runner-sprite"><div class="sprite athlete-sprite side-run"><i class="hair"></i><i class="head"></i><i class="torso"></i><i class="arm arm-l"></i><i class="arm arm-r"></i><i class="leg leg-l"></i><i class="leg leg-r"></i><i class="shoe shoe-l"></i><i class="shoe shoe-r"></i></div></div>
+        </div>
+        <div class="timing-strip pixel-card"><span>Muy temprano</span><b>Zona perfecta</b><span>Muy tarde</span></div>
+        <div id="longMsg" class="event-message pixel-card">Corre y salta en la zona correcta.</div>
+        <button class="exit-btn" data-exit>ESC Salir</button>
+      </section>
+
+      <section id="screenHammer" class="screen event-screen hammer-event" aria-label="Lanzamiento de martillo">
+        <div class="event-sky"></div>
+        <div class="event-crowd"></div>
+        <div class="event-title pixel-card">2 · Lanzamiento de Martillo</div>
+        <div class="instruction-card pixel-card">
+          Presiona <kbd>SPACE</kbd> cuando la flecha esté en la zona verde. Logra 3 aciertos.
+        </div>
+        <div class="hammer-cage">
+          <div class="throw-circle"></div>
+          <div class="hammer-athlete"><div class="sprite athlete-sprite side-run"><i class="hair"></i><i class="head"></i><i class="torso"></i><i class="arm arm-l"></i><i class="arm arm-r"></i><i class="leg leg-l"></i><i class="leg leg-r"></i><i class="shoe shoe-l"></i><i class="shoe shoe-r"></i></div></div>
+          <div class="hammer-ball"></div>
+        </div>
+        <div class="hammer-meter pixel-card">
+          <div id="meterArrow" class="meter-arrow"></div>
+          <div class="meter-gradient"></div>
+        </div>
+        <div class="hit-panel pixel-card">
+          <h3>Golpes exitosos</h3>
+          <div id="hammerHits" class="hit-dots"><span></span><span></span><span></span></div>
+        </div>
+        <div id="hammerMsg" class="event-message pixel-card">Busca el timing perfecto.</div>
+        <button class="exit-btn" data-exit>ESC Salir</button>
+      </section>
+
+      <section id="screenHurdles" class="screen event-screen hurdles-event" aria-label="Salto con vallas">
+        <div class="event-sky"></div>
+        <div class="event-crowd"></div>
+        <div class="event-title pixel-card">3 · Salto con Vallas</div>
+        <div class="progress-counter pixel-card">Vallas: <span id="hurdleCounter">0</span>/3</div>
+        <div class="instruction-card pixel-card">
+          Toca <kbd>C</kbd> rápido para correr. Usa <kbd>SPACE</kbd> para saltar cada valla.
+        </div>
+        <div class="hurdle-track">
+          <div id="hurdleRunner" class="runner-sprite"><div class="sprite athlete-sprite side-run"><i class="hair"></i><i class="head"></i><i class="torso"></i><i class="arm arm-l"></i><i class="arm arm-r"></i><i class="leg leg-l"></i><i class="leg leg-r"></i><i class="shoe shoe-l"></i><i class="shoe shoe-r"></i></div></div>
+          <div id="hurdleSet"></div>
+          <div class="finish"></div>
+        </div>
+        <div class="speedbar pixel-card"><span>Velocidad</span><i id="speedFill"></i></div>
+        <div id="hurdlesMsg" class="event-message pixel-card">Acelera con C y salta con SPACE.</div>
+        <button class="exit-btn" data-exit>ESC Salir</button>
+      </section>
+
+      <section id="screenHigh" class="screen event-screen high-event" aria-label="Salto de altura">
+        <div class="event-sky"></div>
+        <div class="event-crowd"></div>
+        <div class="event-title pixel-card">4 · Salto de Altura</div>
+        <div class="attempt-box pixel-card">Intento <span id="highAttempt">1</span>/3</div>
+        <div class="instruction-card pixel-card">
+          Mantén <kbd>C</kbd>, salta con <kbd>SPACE</kbd> y presiona <kbd>D</kbd> en el aire para arquearte.
+        </div>
+        <div class="high-stage">
+          <div class="high-mat"></div>
+          <div class="high-post left"></div><div class="high-post right"></div><div class="high-bar"></div>
+          <div id="highRunner" class="runner-sprite"><div class="sprite athlete-sprite side-run"><i class="hair"></i><i class="head"></i><i class="torso"></i><i class="arm arm-l"></i><i class="arm arm-r"></i><i class="leg leg-l"></i><i class="leg leg-r"></i><i class="shoe shoe-l"></i><i class="shoe shoe-r"></i></div></div>
+        </div>
+        <div id="highMsg" class="event-message pixel-card">Salta cerca de la barra y arquea el cuerpo.</div>
+        <button class="exit-btn" data-exit>ESC Salir</button>
+      </section>
+
+      <section id="screenCV" class="screen cv-scene" aria-label="Currículum desbloqueado">
+        <div class="stadium-bg">
+          <div class="cloud cloud-1"></div>
+          <div class="cloud cloud-2"></div>
+          <div class="crowd crowd-a"></div>
+          <div class="track-ring"></div>
+          <div class="field-glow"></div>
+        </div>
+        <div class="victory-left pixel-card">
+          <h2>¡Campeón del Curriculum!</h2>
+          <div class="winner-sprite celebrate-idle"><div class="sprite athlete-sprite facing-front"><i class="hair"></i><i class="head"></i><i class="torso"></i><i class="arm arm-l"></i><i class="arm arm-r"></i><i class="leg leg-l"></i><i class="leg leg-r"></i><i class="shoe shoe-l"></i><i class="shoe shoe-r"></i></div></div>
+          <div class="medal-grid">
+            <span>✓ Longitud</span><span>✓ Martillo</span><span>✓ Vallas</span><span>✓ Altura</span>
+          </div>
+        </div>
+        <article class="cv-board pixel-card">
+          <header class="cv-head">
+            <div class="cv-avatar mini-avatar"></div>
+            <div>
+              <p class="eyebrow">Perfil desbloqueado</p>
+              <h1>Víctor Benítez</h1>
+              <p>Data Science · Data Analytics · Business Intelligence</p>
+            </div>
+          </header>
+          <section class="cv-grid">
+            <div class="cv-card"><h3>Contacto</h3><p>Ciudad de México<br>vbenite1@itam.mx<br>55-7338-0734</p></div>
+            <div class="cv-card"><h3>Educación</h3><p>ITAM · Ciencia de Datos<br>ITAM · Actuaría<br>UPC Barcelona · Intercambio 2025</p></div>
+            <div class="cv-card"><h3>Software</h3><p>Java, Python, SQL, R<br>Microsoft Office, GitHub, Docker</p></div>
+            <div class="cv-card"><h3>Experiencia</h3><p>Enlace Rural · Project Coordinator / Executive Lead<br>B1T · Vice President</p></div>
+            <div class="cv-card"><h3>Idiomas</h3><p>Español nativo<br>Inglés avanzado<br>Francés básico</p></div>
+            <div class="cv-card"><h3>Logro clave</h3><p>Impacto social, liderazgo estudiantil, planeación de proyectos y coordinación de equipos.</p></div>
+          </section>
+          <div class="cv-actions">
+            <a class="primary-btn link-btn" href="assets/cv-victor-benitez.pdf" target="_blank" rel="noopener">Abrir CV PDF</a>
+            <button class="secondary-btn" id="playAgain">Volver a jugar</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <dialog id="instructionsDialog" class="pixel-dialog">
+      <h2>Cómo jugar</h2>
+      <p>Muévete por el estadio con las flechas. Cuando estés encima de una zona de competencia, presiona E o haz clic en la prueba.</p>
+      <p>Supera las 4 pruebas para desbloquear el podio y acceder al CV de Víctor.</p>
+      <button class="primary-btn" id="closeInstructions">Entendido</button>
+    </dialog>
+
+    <div id="celebration" class="celebration hidden" aria-live="polite">
+      <div class="celebrate-athlete"><div class="sprite athlete-sprite facing-front"><i class="hair"></i><i class="head"></i><i class="torso"></i><i class="arm arm-l"></i><i class="arm arm-r"></i><i class="leg leg-l"></i><i class="leg leg-r"></i><i class="shoe shoe-l"></i><i class="shoe shoe-r"></i></div></div>
+      <div class="celebrate-card pixel-card"><strong id="celebrationTitle">¡Prueba superada!</strong><span id="celebrationText">Siguiente reto desbloqueado.</span></div>
     </div>
   </div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#home" class="nav-logo">
-        <span class="logo-bracket">&lt;</span>
-        Víctor Benítez
-        <span class="logo-bracket">/&gt;</span>
-      </a>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
-      </ul>
-
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-bg">
-      <div class="binary-bg" id="binaryBg"></div>
-      <div class="grid-overlay"></div>
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-tag reveal">
-        <span class="dot"></span> Open to opportunities
-      </div>
-
-      <h1 class="hero-title reveal">
-        <span class="line">Hi, I'm</span>
-        <span class="line name-line">Víctor Benítez</span>
-      </h1>
-
-      <p class="hero-subtitle reveal">
-        Data Science &amp; Actuarial Science student at <strong>ITAM</strong> ·
-        Academic Excellence Scholar ·
-        Exchange student at <strong>UPC Barcelona</strong>
-      </p>
-
-      <p class="hero-desc reveal">
-        I’m interested in the intersection of mathematics, technology, and social impact.
-        My work combines analytical thinking, technical curiosity, and leadership experience
-        across academic, community, and student-driven initiatives.
-      </p>
-
-      <div class="hero-actions reveal">
-        <a href="#projects" class="btn btn-primary">
-          <i class="fa-solid fa-rocket"></i> View Projects
-        </a>
-        <a href="assets/cv/cv.pdf" class="btn btn-ghost" target="_blank" download>
-          <i class="fa-solid fa-file-arrow-down"></i> Download CV
-        </a>
-      </div>
-
-      <div class="hero-stats reveal">
-        <div class="stat">
-          <span class="stat-num">3+</span>
-          <span class="stat-label">Leadership roles</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">2</span>
-          <span class="stat-label">Academic institutions</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">8+</span>
-          <span class="stat-label">Technical tools</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">01 — About</span>
-        <h2 class="section-title">Who I Am</h2>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-photo reveal">
-          <div class="photo-frame">
-            <img src="assets/img/profile.jpg" alt="Víctor Benítez" id="profilePhoto" />
-            <div class="photo-accent"></div>
-          </div>
-
-          <div class="about-social">
-            <a href="https://github.com/victormbr-creator" target="_blank" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://linkedin.com/in/victor-manuel-benitez-renteria-vmbr" target="_blank" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="mailto:victorm.br@outlook.com" aria-label="Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="about-text reveal">
-          <p class="about-intro">
-            I’m a <strong>Data Science and Actuarial Science student</strong> at
-            ITAM (Instituto Tecnológico Autónomo de México), where I have received an
-            <strong>Academic Excellence Scholarship</strong>.
-          </p>
-
-          <p>
-            I also completed an academic exchange at
-            <strong>Universitat Politècnica de Catalunya (UPC)</strong> in Barcelona,
-            an experience that strengthened both my technical perspective and my ability
-            to adapt to new academic and cultural environments.
-          </p>
-
-          <p>
-            Beyond academics, I’ve taken on leadership roles in student and social-impact
-            organizations, coordinating projects, working with communities, and helping
-            teams move from ideas to execution. I’m especially interested in work that
-            combines rigorous analysis with real human value.
-          </p>
-
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <i class="fa-solid fa-location-dot"></i>
-              <span>Mexico City, Mexico</span>
-            </div>
-            <div class="highlight-item">
-              <i class="fa-solid fa-graduation-cap"></i>
-              <span>ITAM — Data Science &amp; Actuarial Science</span>
-            </div>
-            <div class="highlight-item">
-              <i class="fa-solid fa-globe"></i>
-              <span>Exchange Program — UPC Barcelona</span>
-            </div>
-            <div class="highlight-item">
-              <i class="fa-solid fa-language"></i>
-              <span>Spanish · English · French</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section section-alt" id="experience">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">02 — Experience</span>
-        <h2 class="section-title">Where I’ve Contributed</h2>
-      </div>
-
-      <div class="timeline">
-
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="card-header">
-              <div class="card-logo-wrap">
-                <img
-                  src="assets/img/logos/b1t.png"
-                  alt="B1T"
-                  class="card-logo"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
-                />
-                <div class="card-logo-fallback" style="display:none">
-                  <i class="fa-solid fa-building"></i>
-                </div>
-              </div>
-
-              <div class="card-meta">
-                <h3 class="card-title">Vice President</h3>
-                <span class="card-org">B1T</span>
-                <span class="card-date"><i class="fa-regular fa-calendar"></i> 2025 — Present</span>
-              </div>
-
-              <span class="card-badge">Leadership</span>
-            </div>
-
-            <ul class="card-bullets">
-              <li>Supported strategic planning and high-level decision-making as part of the executive team.</li>
-              <li>Helped coordinate initiatives across teams to strengthen alignment, execution, and organizational growth.</li>
-              <li>Contributed to projects focused on technology, community, and student engagement.</li>
-            </ul>
-
-            <div class="card-tags">
-              <span>Leadership</span>
-              <span>Strategy</span>
-              <span>Coordination</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="card-header">
-              <div class="card-logo-wrap">
-                <img
-                  src="assets/img/logos/enlace-rural.png"
-                  alt="Enlace Rural"
-                  class="card-logo"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
-                />
-                <div class="card-logo-fallback" style="display:none">
-                  <i class="fa-solid fa-seedling"></i>
-                </div>
-              </div>
-
-              <div class="card-meta">
-                <h3 class="card-title">Executive Lead</h3>
-                <span class="card-org">Enlace Rural</span>
-                <span class="card-date"><i class="fa-regular fa-calendar"></i> 2024 — 2025</span>
-              </div>
-
-              <span class="card-badge card-badge-green">Social Impact</span>
-            </div>
-
-            <ul class="card-bullets">
-              <li>Oversaw the general direction and execution of a rural development initiative.</li>
-              <li>Worked with teams and stakeholders to coordinate projects with community impact.</li>
-              <li>Helped manage planning, communication, and follow-through across different stages of implementation.</li>
-            </ul>
-
-            <div class="card-tags">
-              <span>Management</span>
-              <span>Community</span>
-              <span>Social Impact</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="card-header">
-              <div class="card-logo-wrap">
-                <img
-                  src="assets/img/logos/enlace-rural.png"
-                  alt="Enlace Rural"
-                  class="card-logo"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
-                />
-                <div class="card-logo-fallback" style="display:none">
-                  <i class="fa-solid fa-seedling"></i>
-                </div>
-              </div>
-
-              <div class="card-meta">
-                <h3 class="card-title">Project Coordinator</h3>
-                <span class="card-org">Enlace Rural</span>
-                <span class="card-date"><i class="fa-regular fa-calendar"></i> 2023 — 2024</span>
-              </div>
-
-              <span class="card-badge card-badge-green">Social Impact</span>
-            </div>
-
-            <ul class="card-bullets">
-              <li>Coordinated fieldwork and project logistics for community-centered initiatives.</li>
-              <li>Facilitated communication among volunteers, organizers, and community members.</li>
-              <li>Supported event planning, operational follow-up, and team execution.</li>
-            </ul>
-
-            <div class="card-tags">
-              <span>Coordination</span>
-              <span>Operations</span>
-              <span>Fieldwork</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="section" id="education">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">03 — Education</span>
-        <h2 class="section-title">Academic Background</h2>
-      </div>
-
-      <div class="edu-grid">
-
-        <div class="edu-card reveal">
-          <div class="edu-card-top">
-            <div class="edu-logo-wrap">
-              <img
-                src="assets/img/logos/itam.png"
-                alt="ITAM"
-                class="edu-logo"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
-              />
-              <div class="edu-logo-fallback" style="display:none">
-                <i class="fa-solid fa-university"></i>
-              </div>
-            </div>
-            <div class="edu-badge">
-              <i class="fa-solid fa-star"></i> Excellence Scholarship
-            </div>
-          </div>
-
-          <h3 class="edu-degree">B.S. in Data Science &amp; Actuarial Science</h3>
-          <span class="edu-school">Instituto Tecnológico Autónomo de México (ITAM)</span>
-          <span class="edu-location"><i class="fa-solid fa-location-dot"></i> Mexico City, Mexico</span>
-          <span class="edu-date">2022 — Present</span>
-
-          <p class="edu-desc">
-            Undergraduate studies focused on statistics, actuarial mathematics, programming,
-            and data-driven problem solving. Recipient of an Academic Excellence Scholarship.
-          </p>
-
-          <div class="edu-tags">
-            <span>Statistics</span>
-            <span>Data Science</span>
-            <span>Actuarial Science</span>
-            <span>Programming</span>
-          </div>
-        </div>
-
-        <div class="edu-card reveal">
-          <div class="edu-card-top">
-            <div class="edu-logo-wrap">
-              <img
-                src="assets/img/logos/upc.png"
-                alt="UPC"
-                class="edu-logo"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
-              />
-              <div class="edu-logo-fallback" style="display:none">
-                <i class="fa-solid fa-globe"></i>
-              </div>
-            </div>
-            <div class="edu-badge edu-badge-blue">
-              <i class="fa-solid fa-plane"></i> Exchange Program
-            </div>
-          </div>
-
-          <h3 class="edu-degree">Academic Exchange</h3>
-          <span class="edu-school">Universitat Politècnica de Catalunya (UPC)</span>
-          <span class="edu-location"><i class="fa-solid fa-location-dot"></i> Barcelona, Spain</span>
-          <span class="edu-date">2025</span>
-
-          <p class="edu-desc">
-            Exchange semester at a leading technical university, gaining international academic
-            experience and broadening my perspective on quantitative and technical disciplines.
-          </p>
-
-          <div class="edu-tags">
-            <span>International Experience</span>
-            <span>Quantitative Training</span>
-            <span>Adaptability</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section section-alt" id="skills">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">04 — Skills</span>
-        <h2 class="section-title">What I Work With</h2>
-      </div>
-
-      <div class="skills-grid">
-
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title"><i class="fa-solid fa-code"></i> Programming Languages</h3>
-          <div class="skill-pills">
-            <div class="skill-pill">
-              <i class="fa-brands fa-python"></i>
-              <span>Python</span>
-            </div>
-            <div class="skill-pill">
-              <i class="fa-brands fa-java"></i>
-              <span>Java</span>
-            </div>
-            <div class="skill-pill">
-              <span class="pill-icon">C#</span>
-              <span>C#</span>
-            </div>
-            <div class="skill-pill">
-              <span class="pill-icon">R</span>
-              <span>R</span>
-            </div>
-            <div class="skill-pill">
-              <i class="fa-solid fa-database"></i>
-              <span>SQL</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title"><i class="fa-solid fa-toolbox"></i> Tools &amp; Platforms</h3>
-          <div class="skill-pills">
-            <div class="skill-pill">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </div>
-            <div class="skill-pill">
-              <i class="fa-brands fa-docker"></i>
-              <span>Docker</span>
-            </div>
-            <div class="skill-pill">
-              <i class="fa-brands fa-microsoft"></i>
-              <span>Microsoft Office</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title"><i class="fa-solid fa-users"></i> Leadership &amp; Collaboration</h3>
-          <div class="skill-pills">
-            <div class="skill-pill">
-              <i class="fa-solid fa-chess-king"></i>
-              <span>Leadership</span>
-            </div>
-            <div class="skill-pill">
-              <i class="fa-solid fa-diagram-project"></i>
-              <span>Project Management</span>
-            </div>
-            <div class="skill-pill">
-              <i class="fa-solid fa-handshake"></i>
-              <span>Community Engagement</span>
-            </div>
-            <div class="skill-pill">
-              <i class="fa-solid fa-bullhorn"></i>
-              <span>Student Representation</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title"><i class="fa-solid fa-language"></i> Languages</h3>
-          <div class="skill-pills">
-            <div class="skill-pill">
-              <span class="pill-flag">🇲🇽</span>
-              <span>Spanish <em>(Native)</em></span>
-            </div>
-            <div class="skill-pill">
-              <span class="pill-flag">🇺🇸</span>
-              <span>English <em>(Advanced)</em></span>
-            </div>
-            <div class="skill-pill">
-              <span class="pill-flag">🇫🇷</span>
-              <span>French <em>(Basic)</em></span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">05 — Projects</span>
-        <h2 class="section-title">Things I’m Building</h2>
-        <p class="section-sub">
-          A selection of academic and personal work. More on
-          <a href="https://github.com/victormbr-creator" target="_blank">
-            GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-        </p>
-      </div>
-
-      <div class="projects-grid">
-
-        <div class="project-card reveal">
-          <div class="project-img-wrap project-icon-only">
-            <div class="project-img-fallback" style="display:flex;">
-              <i class="fa-solid fa-laptop-code"></i>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tech">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span>
-            </div>
-            <h3 class="project-title">Personal Portfolio Website</h3>
-            <p class="project-desc">
-              A responsive website designed to present my academic background, leadership
-              experience, technical skills, and future projects in a clear and professional way.
-            </p>
-            <div class="project-links">
-              <a
-                href="https://github.com/victormbr-creator/victormbr-creator.github.io"
-                target="_blank"
-                class="project-link"
-              >
-                <i class="fa-brands fa-github"></i> Code
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="project-img-wrap project-icon-only">
-            <div class="project-img-fallback" style="display:flex;">
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tech">
-              <span>Python</span><span>R</span><span>SQL</span>
-            </div>
-            <h3 class="project-title">Data Science Projects</h3>
-            <p class="project-desc">
-              A growing collection of projects involving data analysis, statistics,
-              programming, and quantitative problem-solving developed throughout my studies.
-            </p>
-            <div class="project-links">
-              <a href="https://github.com/victormbr-creator" target="_blank" class="project-link">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="project-img-wrap project-icon-only">
-            <div class="project-img-fallback" style="display:flex;">
-              <i class="fa-solid fa-database"></i>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tech">
-              <span>Java</span><span>Databases</span><span>Docker</span>
-            </div>
-            <h3 class="project-title">Technical &amp; Academic Work</h3>
-            <p class="project-desc">
-              Coursework and technical implementations related to programming, databases,
-              and analytical thinking. This section will keep evolving as I build more projects.
-            </p>
-            <div class="project-links">
-              <a href="https://github.com/victormbr-creator" target="_blank" class="project-link">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG -->
-  <section class="section section-alt" id="blog">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">06 — Blog</span>
-        <h2 class="section-title">Thoughts &amp; Writing</h2>
-        <p class="section-sub">A space for reflections on data, learning, leadership, and life.</p>
-      </div>
-
-      <div class="blog-grid">
-
-        <article class="blog-card reveal">
-          <div class="blog-card-top">
-            <span class="blog-tag">Data Science</span>
-            <span class="blog-date">Coming soon</span>
-          </div>
-          <h3 class="blog-title">What I Learned in My First Years Studying Data Science</h3>
-          <p class="blog-excerpt">
-            A reflection on the challenges, surprises, and habits that shaped my academic path
-            in mathematics, statistics, and programming.
-          </p>
-          <a href="#" class="blog-read-more">
-            Read more <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </article>
-
-        <article class="blog-card reveal">
-          <div class="blog-card-top">
-            <span class="blog-tag blog-tag-purple">Abroad</span>
-            <span class="blog-date">Coming soon</span>
-          </div>
-          <h3 class="blog-title">Studying in Barcelona: Lessons from My Exchange at UPC</h3>
-          <p class="blog-excerpt">
-            How living and studying abroad expanded my perspective on learning, independence,
-            and technical education.
-          </p>
-          <a href="#" class="blog-read-more">
-            Read more <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </article>
-
-        <article class="blog-card reveal">
-          <div class="blog-card-top">
-            <span class="blog-tag blog-tag-green">Leadership</span>
-            <span class="blog-date">Coming soon</span>
-          </div>
-          <h3 class="blog-title">Leadership, Community, and the Work Behind Social Impact</h3>
-          <p class="blog-excerpt">
-            Reflections on what student organizations and community projects have taught me
-            about responsibility, teamwork, and real-world impact.
-          </p>
-          <a href="#" class="blog-read-more">
-            Read more <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">07 — Contact</span>
-        <h2 class="section-title">Let’s Connect</h2>
-        <p class="section-sub">
-          Open to internships, collaborations, and meaningful conversations.
-        </p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <span class="contact-label">Email</span>
-              <a href="mailto:victorm.br@outlook.com" class="contact-value">victorm.br@outlook.com</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
-            <div>
-              <span class="contact-label">LinkedIn</span>
-              <a
-                href="https://linkedin.com/in/victor-manuel-benitez-renteria-vmbr"
-                target="_blank"
-                class="contact-value"
-              >
-                linkedin.com/in/victor-manuel-benitez-renteria-vmbr
-              </a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
-            <div>
-              <span class="contact-label">GitHub</span>
-              <a href="https://github.com/victormbr-creator" target="_blank" class="contact-value">
-                github.com/victormbr-creator
-              </a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <span class="contact-label">Location</span>
-              <span class="contact-value">Mexico City, Mexico</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form reveal">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Your name" />
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="your@email.com" />
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" rows="5" placeholder="What’s on your mind?"></textarea>
-          </div>
-
-          <button class="btn btn-primary form-btn" onclick="handleContact()">
-            <i class="fa-solid fa-paper-plane"></i> Send Message
-          </button>
-          <p class="form-note" id="formNote"></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <span class="footer-logo">
-          <span class="logo-bracket">&lt;</span>Víctor Benítez<span class="logo-bracket">/&gt;</span>
-        </span>
-
-        <span class="footer-copy">© 2025 · Built with care &amp; curiosity</span>
-
-        <div class="footer-links">
-          <a href="https://github.com/victormbr-creator" target="_blank" aria-label="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a
-            href="https://linkedin.com/in/victor-manuel-benitez-renteria-vmbr"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a href="mailto:victorm.br@outlook.com" aria-label="Email">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
   <script src="js/game.js"></script>
 </body>
 </html>
